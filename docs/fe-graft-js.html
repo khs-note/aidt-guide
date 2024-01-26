@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="image/png" sizes="32x32" rel="icon" href="images/favicons/icon-32.png">
+    <link type="image/png" sizes="96x96" rel="icon" href="images/favicons/icon-96.png">
+    <script src="libs/graft/graft.min.js"></script>
+    <script src="src/app-init.js"></script>
+    <title>Graft JS |수행 가이드</title>
+</head>
+<body>
+
+<script>
+const resource =app.resource.getDefault();
+app.imports.resource({
+    js: resource.js,
+    css: resource.css,
+    html: resource.html.add({
+        conts :'src/front-end/graft-js.html',
+    }),
+    script: resource.script.add([
+        'src/front-end/graft-js.js',
+    ]),
+})
+.then(_ =>app.layout.default());
+</script>
+
+</body>
+</html>
