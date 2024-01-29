@@ -24,14 +24,12 @@ app.exec(_ =>{
 
         function _markdownRender() {
             app.markdown.fetchFiles(...[
-                'markdown/graft/graft-getstart.md',
-                'markdown/graft/graft-api.md',
-                'markdown/graft/graft-tag.md',
-                'markdown/graft/graft-bridge.md',
+                'markdown/code-style/types.md',
+                'markdown/code-style/object-array.md',
             ])
                 .then(texts =>{
-                    const [mdGetstart] =texts;
-                    app.markdown.render(vo.getstart, mdGetstart);
+                    app.markdown.render(vo.types, texts.shift());
+                    app.markdown.render(vo.objectArray, texts.shift());
                 });
         }
     }

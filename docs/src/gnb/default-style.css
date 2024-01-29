@@ -10,3 +10,35 @@ html {
 main {
     min-height: -webkit-fill-available;
 }
+
+/** ==== 마크다운 ==== */
+[data-bs-theme=dark] .markdown-body {
+    background-color: var(--bs-body-bg);
+}
+
+/** ==== 프린트 설정 ==== */
+@media print {
+    [data-none-print] {display: none !important;}
+    code {
+        white-space :break-spaces;
+    }
+    pre {
+        border :1px solid #ddd;
+        border-radius: 3px;
+    }
+    .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    /* .main-content {
+        height: unset;
+        overflow: scroll;
+    }
+    .main-content::-webkit-scrollbar {display: none;} */
+    @page {
+        size: A4;
+        margin :16mm;
+    }
+}

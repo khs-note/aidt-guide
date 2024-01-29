@@ -4,6 +4,8 @@ const app =Graft.init((app) => {
     app.config.debug =/http:/.test(location.protocol);
     // 로그 세팅
     app.log.out =logOut();
+    // 유틸리티 세팅
+    app.utils =extendsUtils();
 
     app.layout ={};
     // 테마 세팅
@@ -23,23 +25,23 @@ const app =Graft.init((app) => {
         app.html.insert(app.view.gnbHeader);
         app.html.insert(app.view.main);
     }
-    function resourceDefault() {
-        const js =[];
-        const css =[
+    function resourceDefault(opt ={}) {
+        const js =app.utils.zipArray([], opt.js);
+        const css =app.utils.zipArray([
             'libs/bootstrap/bootstrap.min.css',
             'libs/bootstrap/bootstrap-icons.min.css',
             'src/gnb/default-style.css',
-        ];
-        const script =[
+        ], opt.css);
+        const script =app.utils.zipArray([
             'src/gnb/default-header.js',
             'src/gnb/default-side-nav.js',
             'src/gnb/default-side-mob-nav.js',
-        ];
-        const html ={
+        ], opt.script);
+        const html =app.utils.zipObject({
             gnbHeader :'src/gnb/default-header.html',
             gnbSideNav :'src/gnb/default-side-nav.html',
             gnbSideMobNav :'src/gnb/default-side-mob-nav.html',
-        };
+        }, opt.html);
 
         app.view.main =app.tag('main', {class :'d-flex flex-nowrap container'});
         return app.resource.getResource({js, css, script, html});
@@ -52,23 +54,28 @@ const app =Graft.init((app) => {
     function layoutTheme() {
         const {utils :{storage :{local}}} =app;
 
+        const getMode =_ =>local.get('theme-mode') ||'light';
         const toggleMode =_ =>{
-            _setMode(_getMode() =='light' ?'dark' :'light');
+            _setMode(getMode() =='light' ?'dark' :'light');
             location.reload();
         };
         const onLoad =block =>{
-            const mode =_getMode();
+            const mode =getMode();
             app.html.page.dataset.bsTheme =mode;
             block &&block(mode =='dark');
         };
-        return {toggleMode, onLoad};
+        return {getMode, toggleMode, onLoad};
 
-        function _getMode() {
-            return local.get('theme-mode') ||'light';
-        }
+
         function _setMode(mode) {
             local.set('theme-mode', mode);
         }
+    }
+    function extendsUtils() {
+        app.utils.zipArray =(a =[], b =[]) =>a.concat(b);
+        app.utils.zipObject =(a ={}, b ={}) =>Object.assign({}, a, b);
+
+        return app.utils;
     }
     function logOut() {
         const {name, version, debug} =app.config;

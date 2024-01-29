@@ -1,7 +1,8 @@
 app.exec(_ =>{
     const view =app.view.gnbHeader =app.tag('header', controller, {
         html :app.template.gnbHeader,
-        class :'py-3 border-bottom'
+        class :'py-3 border-bottom',
+        dataNonePrint :'',
     });
     function controller() {
         bindEvent();
