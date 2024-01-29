@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="image/png" sizes="32x32" rel="icon" href="images/favicons/icon-32.png">
+    <link type="image/png" sizes="96x96" rel="icon" href="images/favicons/icon-96.png">
+    <script src="libs/graft/graft.min.js"></script>
+    <script src="src/app-init.js"></script>
+    <script src="src/app-markdown.js"></script>
+    <title>코드 스타일 가이드 |수행 가이드</title>
+</head>
+<body>
+
+<script>
+const resource =app.resource.getDefault(app.markdown.getResource());
+app.imports.resource({
+    js: resource.js,
+    css: resource.css,
+    html: resource.html.add({
+        conts :'src/front-end/code-style.html',
+    }),
+    script: resource.script.add([
+        'src/front-end/code-style.js',
+    ]),
+})
+.then(_ =>app.layout.default());
+</script>
+
+</body>
+</html>

@@ -1,14 +1,22 @@
-## Graft js 소개
+# Graft 시작하기
 
-DOM 엘리먼트에 확장된 기능을 이식 하여 편의 기능을 제공 합니다.
 
-## 사용방법
-Graft.js 파일을 임포트 후 전역객체인 `Graft`를 사용합니다.
+## 소개
+웹 어플리케이션에 대한 사용자 인터페이스를 작성하기 위한 스크립트 입니다.
+DOM 엘리먼트의 기능을 확장 하여 개발 편의 기능을 제공 합니다.
+
+### 시작하기
+HTML 문서에 `graft.min.js` 파일을 추가 후 사용합니다.
+웹 어플리케이션을 작성하기 위해 전역 객체인 **Graft**를 사용합니다.
+
+```html
+<script src="graft.min.js"></script>
+```
 
 ### 어플리케이션 초기화
 어프리케이션에 대한 전반적인 환경값 설정 및 초기화를 수행하며, 프로젝트 전반에 사용할 객체의 별칭을 지정 할 수 있습니다.
 
-**graft-init.js**<br>
+**Graft.init**<br>
 ```js
 // 프로젝트 전반에 사용 할 값으로 app 지정
 const app= Graft.init(app=> {
@@ -16,10 +24,12 @@ const app= Graft.init(app=> {
 });
 ```
 
-### 어플리케이션 구조
-웹 어플리케이션 구동을 위한 파일 구조 샘플 입니다.
+## Hello Graft
 
-```sh
+### 어플리케이션 구조
+웹 어플리케이션 구동을 위한 파일 구조 입니다.
+
+```shell
 # 루트
 /
     # 기능 라이브러리 폴더
@@ -38,21 +48,15 @@ const app= Graft.init(app=> {
         # 공통 헤더
         /header.html
         /header.js
-        # 공통 푸터
-        /footer.html
-        /footer.js
-        # 시스템 팝업 alert, confirm 등
-        /popup.html
-        /popup.js
 
     # 서비스 폴더
     /main
-        # 컨텐츠 영역을 컨트롤 할 기능을 담당 할 스크립트
+        # 어플리케이션 컨텐츠 영역을 컨트롤 할 스크립트
         /index.js
-        # 출력 대상의 컨텐츠 영역에 대한 HTML 템플릿
+        # 어플리케이션 컨텐츠 영역에 대한 뷰(HTML) 템플릿
         /index.html
 
-    # 출력 대상이 되는 메인 HTML
+    # 어플리케이션 HTML
     /index.html
 ```
 

@@ -11,13 +11,20 @@ main {
     min-height: -webkit-fill-available;
 }
 
-/**
-==== 프린트 설정 ====
-*/
+/** ==== 마크다운 ==== */
+[data-bs-theme=dark] .markdown-body {
+    background-color: var(--bs-body-bg);
+}
+
+/** ==== 프린트 설정 ==== */
 @media print {
     [data-none-print] {display: none !important;}
     code {
         white-space :break-spaces;
+    }
+    pre {
+        border :1px solid #ddd;
+        border-radius: 3px;
     }
     .container {
         width: 100% !important;
