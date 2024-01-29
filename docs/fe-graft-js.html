@@ -7,12 +7,13 @@
     <link type="image/png" sizes="96x96" rel="icon" href="images/favicons/icon-96.png">
     <script src="libs/graft/graft.min.js"></script>
     <script src="src/app-init.js"></script>
+    <script src="src/app-markdown.js"></script>
     <title>Graft JS |수행 가이드</title>
 </head>
 <body>
 
 <script>
-const resource =app.resource.getDefault();
+const resource =app.resource.getDefault(app.markdown.getResource());
 app.imports.resource({
     js: resource.js,
     css: resource.css,

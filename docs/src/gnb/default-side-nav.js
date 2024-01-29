@@ -2,6 +2,7 @@ app.exec(_ =>{
     const view =app.view.gnbSideNav =app.tag('div', controller, {
         html :app.template.gnbSideNav,
         class :'flex-shrink-0 p-3 d-none d-md-block',
+        dataNonePrint :'',
         style :'width: 280px;',
     });
     /**
