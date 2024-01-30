@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="image/png" sizes="32x32" rel="icon" href="images/favicons/icon-32.png">
+    <link type="image/png" sizes="96x96" rel="icon" href="images/favicons/icon-96.png">
+    <script src="libs/graft/graft.min.js"></script>
+    <title>수행 가이드</title>
+</head>
+<body>
+    <header>
+        <h1 data-vo="header"></h1>
+    </header>
+    <main data-vo="main"></main>
+
+    <script>
+    const app =Graft.init();
+    app.exec(_ =>{
+        const view =app.tag(document.body, _ =>{
+            view.$.setTexts({
+                header :'Hello',
+                main :'Hello, World!'
+            });
+        });
+    });
+    </script>
+</body>
+</html>

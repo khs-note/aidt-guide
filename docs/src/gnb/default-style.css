@@ -32,6 +32,9 @@ main {
         padding: 0 !important;
         margin: 0 !important;
     }
+    .container >.row >* {
+        width: 100% !important;
+    }
     /* .main-content {
         height: unset;
         overflow: scroll;
