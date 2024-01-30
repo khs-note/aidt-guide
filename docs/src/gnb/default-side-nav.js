@@ -1,15 +1,14 @@
 app.exec(_ =>{
-    const view =app.view.gnbSideNav =app.tag('div', controller, {
+    const view =app.view.gnbSideNav =app.tag('div', {
         html :app.template.gnbSideNav,
         class :'flex-shrink-0 p-3 d-none d-md-block',
         dataNonePrint :'',
         style :'width: 280px;',
-    });
-    function controller() {
+    }, _ =>{
         initView();
         bindEvent();
         app.view.main.$.insert(view);
-    }
+    });
 
 
     // ==== 내부 기능 ====
@@ -22,7 +21,6 @@ app.exec(_ =>{
         _themeMode();
         _setActiveLink();
 
-
         function _setActiveLink() {
             const paths =location.pathname.split('/');
             const regExp =new RegExp(paths[paths.length -1] +'$');
@@ -32,10 +30,12 @@ app.exec(_ =>{
                 el.href =el.href.replace(location.origin, '').replace(/^\//, app.link.docsMain +'/');
                 if(regExp.test(el.href)) {
                     el.$.cls.add('text-primary');
-                    el.firstElementChild.$.cls
-                        .remove('bi-caret-right')
-                        .add('bi-caret-right-fill');
-                    el.nextElementSibling.$.cls.remove('d-none');
+
+                    const {firstElementChild :first} =el;
+                    first &&first.$.cls.remove('bi-caret-right').add('bi-caret-right-fill');
+                    
+                    const {nextElementSibling :next} =el;
+                    next &&next.$.cls.remove('d-none');
                 }
             });
         }
