@@ -1,13 +1,13 @@
 app.exec(_ =>{
     const view =app.view.gnbSideNav =app.tag('div', {
         html :app.template.gnbSideNav,
-        class :'flex-shrink-0 p-3 d-none d-md-block',
+        // class :'flex-shrink-0 p-3 d-none d-md-block',
         dataNonePrint :'',
-        style :'width: 280px;',
+        // style :'width: 280px;',
     }, _ =>{
         initView();
         bindEvent();
-        app.view.main.$.insert(view);
+        // app.view.main.$.insert(view);
     });
 
 

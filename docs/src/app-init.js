@@ -23,7 +23,16 @@ const app =Graft.init((app) => {
     // ===== 내부 기능 =====
     function layoutDefault() {
         app.html.insert(app.view.gnbHeader);
-        app.html.insert(app.view.main);
+        // app.html.insert(app.view.main);
+
+        const {mainWrap} =app.view;
+
+        app.view.gnbSideNav.$.cls.add('col-3');
+        app.view.main.$.cls.add('col-9', 'py-3');
+
+        mainWrap.$.insert(app.view.gnbSideNav);
+        mainWrap.$.insert(app.view.main);
+        app.html.insert(app.tag('main', {class :'container'}, [mainWrap]));
     }
     function resourceDefault(opt ={}) {
         const js =app.utils.zipArray([], opt.js);
@@ -43,7 +52,9 @@ const app =Graft.init((app) => {
             gnbSideMobNav :'src/gnb/default-side-mob-nav.html',
         }, opt.html);
 
-        app.view.main =app.tag('main', {class :'d-flex flex-nowrap container'});
+        // app.view.main =app.tag('main', {class :'d-flex flex-nowrap container'});
+        app.view.main =app.tag('div');
+        app.view.mainWrap =app.tag('div', {class :'row g-5'});
         return app.resource.getResource({js, css, script, html});
     }
     function getLinkPath() {
