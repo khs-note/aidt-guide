@@ -16,6 +16,14 @@ main {
     background-color: var(--bs-body-bg);
 }
 
+[data-bs-theme=dark] .language-mermaid .messageText,
+[data-bs-theme=dark] .language-mermaid #arrowhead >path {
+    fill: #eee !important;
+}
+[data-bs-theme=dark] .language-mermaid .messageLine0 {
+    stroke: #eee !important;
+}
+
 /** ==== 프린트 설정 ==== */
 @media print {
     [data-none-print] {display: none !important;}

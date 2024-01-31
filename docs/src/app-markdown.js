@@ -15,7 +15,7 @@ app.exec(_ =>{
 
         setTimeout(_ =>mermaid.run({
             nodes: target.$.queryAll('.language-mermaid'),
-        }), 100);
+        }), 200);
     }
     function setHighlight(target) {
         requestAnimationFrame(_ =>{

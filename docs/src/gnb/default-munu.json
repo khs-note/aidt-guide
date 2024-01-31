@@ -54,10 +54,10 @@
             }]
         }, {
             "name" :"Tag 객체",
-            "link" :"#"
+            "link" :"#graft-tag"
         }, {
             "name" :"Bridge 연결",
-            "link" :"#"
+            "link" :"#graft-bridge"
         }]
     }, {
         "name" :"코드 스타일 가이드",

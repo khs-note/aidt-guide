@@ -1,5 +1,5 @@
 ## resource
-리소스 관리 도우미 객체
+리소스 관리 도우미 객체 입니다.
 ```ts
 Graft::resource ={
     /**
