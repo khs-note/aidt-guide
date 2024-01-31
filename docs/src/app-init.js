@@ -17,22 +17,32 @@ const app =Graft.init((app) => {
     app.layout.default =layoutDefault;
 
     // 링크 경로
-    app.link =getLinkPath();
+    app.link =appLink();
+    // 데이터 통신
+    app.ajax =appAjax();
 
 
     // ===== 내부 기능 =====
+    function appAjax() {
+        const getText =url =>fetch(url).then(res =>res.text());
+        const getJson =url =>fetch(url).then(res =>res.json());
+        return {getText, getJson};
+    }
     function layoutDefault() {
         app.html.insert(app.view.gnbHeader);
-        // app.html.insert(app.view.main);
+        app.html.insert(_mainContainer());
 
-        const {mainWrap} =app.view;
 
-        app.view.gnbSideNav.$.cls.add('col-3');
-        app.view.main.$.cls.add('col-9', 'py-3');
+        function _mainContainer() {
+            const {mainWrap} =app.view;
 
-        mainWrap.$.insert(app.view.gnbSideNav);
-        mainWrap.$.insert(app.view.main);
-        app.html.insert(app.tag('main', {class :'container'}, [mainWrap]));
+            app.view.gnbSideNav.$.cls.add('col-md-3', 'd-none', 'd-md-block');
+            app.view.main.$.cls.add('col-12', 'col-md-9', 'py-3');
+
+            mainWrap.$.insert(app.view.gnbSideNav);
+            mainWrap.$.insert(app.view.main);
+            return app.tag('main', {class :'container'}, [mainWrap]);
+        }
     }
     function resourceDefault(opt ={}) {
         const js =app.utils.zipArray([], opt.js);
@@ -44,20 +54,19 @@ const app =Graft.init((app) => {
         const script =app.utils.zipArray([
             'src/gnb/default-header.js',
             'src/gnb/default-side-nav.js',
-            'src/gnb/default-side-mob-nav.js',
         ], opt.script);
         const html =app.utils.zipObject({
             gnbHeader :'src/gnb/default-header.html',
             gnbSideNav :'src/gnb/default-side-nav.html',
-            gnbSideMobNav :'src/gnb/default-side-mob-nav.html',
         }, opt.html);
 
-        // app.view.main =app.tag('main', {class :'d-flex flex-nowrap container'});
+        // 메인 컨네이너 세팅
         app.view.main =app.tag('div');
-        app.view.mainWrap =app.tag('div', {class :'row g-5'});
+        app.view.mainWrap =app.tag('div', {class :'row g-md-5'});
+
         return app.resource.getResource({js, css, script, html});
     }
-    function getLinkPath() {
+    function appLink() {
         const {debug} =app.config;
         const docsMain =debug ?'/docs' :'/aidt-guide';
         return {docsMain};
