@@ -1,7 +1,6 @@
 app.exec(_ =>{
     const view =app.view.conts =app.tag('div', controller, {
         html :app.template.conts,
-        // class :'w-100 p-3'
     });
     function controller() {
         initView();
@@ -26,24 +25,25 @@ app.exec(_ =>{
             app.markdown.fetchFiles(...[
                 'markdown/graft/graft-getstart.md',
                 'markdown/graft/graft-api.md',
-                // 'markdown/graft/api-config.md',
-                // 'markdown/graft/api-log.md',
-                'markdown/graft/api-resource.md',
-                'markdown/graft/api-imports.md',
-                'markdown/graft/api-template.md',
-                'markdown/graft/api-view.md',
-                'markdown/graft/api-html.md',
-                'markdown/graft/api-utils.md',
-                'markdown/graft/api-router.md',
-                'markdown/graft/api-bridge.md',
+                'markdown/graft/graft-api-config.md',
+                'markdown/graft/graft-api-log.md',
+                'markdown/graft/graft-api-resource.md',
+                'markdown/graft/graft-api-imports.md',
+                'markdown/graft/graft-api-template.md',
+                'markdown/graft/graft-api-view.md',
+                'markdown/graft/graft-api-html.md',
+                'markdown/graft/graft-api-utils.md',
+                'markdown/graft/graft-api-router.md',
+                'markdown/graft/graft-api-bridge.md',
                 'markdown/graft/graft-tag.md',
                 'markdown/graft/graft-bridge.md',
             ])
                 .then(texts =>{
                     app.markdown.render(vo.getstart, texts.shift());
 
-                    // app.markdown.render(vo.apiConfig, texts.shift());
                     app.markdown.render(vo.api, texts.shift());
+                    app.markdown.render(vo.apiConfig, texts.shift());
+                    app.markdown.render(vo.apiLog, texts.shift());
                     app.markdown.render(vo.apiResource, texts.shift());
                     app.markdown.render(vo.apiImports, texts.shift());
                     app.markdown.render(vo.apiTemplate, texts.shift());
@@ -52,6 +52,9 @@ app.exec(_ =>{
                     app.markdown.render(vo.apiUtils, texts.shift());
                     app.markdown.render(vo.apiRouter, texts.shift());
                     app.markdown.render(vo.apiBridge, texts.shift());
+
+                    app.markdown.render(vo.tag, texts.shift());
+                    app.markdown.render(vo.bridge, texts.shift());
                 });
         }
     }

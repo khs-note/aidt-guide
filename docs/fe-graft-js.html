@@ -13,7 +13,7 @@
 <body>
 
 <script>
-const resource =app.resource.getDefault(app.markdown.getResource());
+const resource =app.resource.getDefault(app.markdown.getResource({useDiagram :true}));
 app.imports.resource({
     js: resource.js,
     css: resource.css,

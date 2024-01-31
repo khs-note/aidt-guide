@@ -1,4 +1,4 @@
-# 네이티브 연동
+# Bridge 연경
 하이브리드 어플리케이션의 네이티브와 연동하여 메시지를 주고 받을 수 있는 브릿지 역할을 수행 합니다.
 
 ## 호출 인터페이스
@@ -236,7 +236,9 @@ extension ViewController: WKScriptMessageHandler {
         if message.name == "GraftNative" {
             print(message.body)
 
-            let json = try? JSONSerialization.jsonObject(with: message.body, options: []) as? [String : Any]
+            let json = try? JSONSerialization.jsonObject(
+                with: message.body, options: []
+            ) as? [String : Any]
             let receiv = [
                 "txid": json["txid"]
             ]
@@ -249,10 +251,13 @@ extension ViewController: WKScriptMessageHandler {
 
             /**
             * ========== 수행 결과 전송 ==========
-            * Graft.receiveWebMessage 함수를 호출 메시지 처리에 대한 응답을 전송 합니다.
+            * Graft.receiveWebMessage 함수를
+            * 호출 메시지 처리에 대한 응답을 전송 합니다.
             * 이 때 수신 메시지의 txid를 응답 전문에 포함 하여 전송 합니다.
             */
-            self.webView.evaluateJavaScript("Graft.receiveWebMessage(\(receive))") { result, error in
+            self.webView.evaluateJavaScript(
+                "Graft.receiveWebMessage(\(receive))"
+            ) { result, error in
                 guard error == nil else {
                     print(error as Any)
                     return
