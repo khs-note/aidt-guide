@@ -1,6 +1,6 @@
 app.exec(_ =>{
-    const view =app.view.gnbSideMobNav =app.tag('div', controller, {
-        html :app.template.gnbSideMobNav,
+    const view =app.view.gnbMobNav =app.tag('div', controller, {
+        html :app.template.gnbMobNav,
         class :'d-md-none',
     });
     function controller() {

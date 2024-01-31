@@ -1,73 +1,40 @@
 <div class="position-sticky" style="top:5.7rem;">
     <div class="d-flex pb-3 mb-2 border-bottom">
-        <span class="fs-5 fw-semibold">프론트 앤드</span>
+        <span data-vo="navTitle" class="fs-5 fw-semibold">&nbsp;</span>
     </div>
     <div class="mb-3 form-check form-switch form-check-reverse">
         <input data-vo="toggleMode" id="toggle-dark-mode" class="form-check-input" type="checkbox">
         <label for="toggle-dark-mode" class="form-check-label">Dark Mode</label>
     </div>
-    
-    <ul class="list-unstyled ps-0">
-        <li class="mb-1">
-            <a href="/fe-graft-js.html" class="btn border-0 collapsed fw-bold">
-                <i class="bi bi-caret-right"></i> Graft JS
-            </a>
-            <div class="collapse show ms-3 d-none">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ms-3">
-                  <li class="py-1"><a href="#graft-getstart" class="link-body-emphasis text-decoration-none">시작하기</a></li>
-    
-                  <li class="py-1"><a href="#graft-api" class="link-body-emphasis text-decoration-none">속성 및 메소드</a></li>
-                  <li class="py-1 border-bottom"><a href="#graft-api-init" class="ps-3 link-body-emphasis text-decoration-none">Graft:init()</a></li>
-                  <li class="py-1"><a href="#graft-api-exec" class="ps-3 link-body-emphasis text-decoration-none">Graft::exec()</a></li>
-                  <li class="py-1 border-bottom"><a href="#graft-api-tag" class="ps-3 link-body-emphasis text-decoration-none">Graft::tag()</a></li>
-                  <li class="py-1"><a href="#graft-api-config" class="ps-3 link-body-emphasis text-decoration-none">Graft::config</a></li>
-                  <li class="py-1"><a href="#graft-api-log" class="ps-3 link-body-emphasis text-decoration-none">Graft::log</a></li>
-                  <li class="py-1"><a href="#graft-api-resource" class="ps-3 link-body-emphasis text-decoration-none">Graft::resource</a></li>
-                  <li class="py-1"><a href="#graft-api-imports" class="ps-3 link-body-emphasis text-decoration-none">Graft::imports</a></li>
-                  <li class="py-1"><a href="#graft-api-template" class="ps-3 link-body-emphasis text-decoration-none">Graft::template</a></li>
-                  <li class="py-1"><a href="#graft-api-view" class="ps-3 link-body-emphasis text-decoration-none">Graft::view</a></li>
-                  <li class="py-1"><a href="#graft-api-html" class="ps-3 link-body-emphasis text-decoration-none">Graft::html</a></li>
-                  <li class="py-1"><a href="#graft-api-utils" class="ps-3 link-body-emphasis text-decoration-none">Graft::utils</a></li>
-                  <li class="py-1"><a href="#graft-api-router" class="ps-3 link-body-emphasis text-decoration-none">Graft::router</a></li>
-                  <li class="py-1"><a href="#graft-api-bridge" class="ps-3 link-body-emphasis text-decoration-none">Graft::bridge</a></li>
-    
-                  <li class="py-1"><a href="#" class="link-body-emphasis text-decoration-none">Tag 객체</a></li>
-                  <li class="py-1"><a href="#" class="link-body-emphasis text-decoration-none">Bridge 연결</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="mb-1">
-            <a href="/fe-code-style.html" class="btn border-0 collapsed fw-bold">
-                <i class="bi bi-caret-right"></i> 코드 스타일 가이드
-            </a>
-            <div class="collapse show ms-3 d-none">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ms-3">
-                  <li><a href="#code-types" class="link-body-emphasis text-decoration-none">타입선언</a></li>
-                  <li><a href="#code-object-array" class="link-body-emphasis text-decoration-none">객체와 배열</a></li>
-                  <li><a href="#" class="link-body-emphasis text-decoration-none">분해 할당</a></li>
-                  <li><a href="#" class="link-body-emphasis text-decoration-none">문자열</a></li>
-                  <li><a href="#" class="link-body-emphasis text-decoration-none">함수와 화살표 함수</a></li>
-                  <li><a href="#" class="link-body-emphasis text-decoration-none">이터레이터</a></li>
-                  <li><a href="#" class="link-body-emphasis text-decoration-none">변수와 속성</a></li>
-                  <li><a href="#" class="link-body-emphasis text-decoration-none">호이스팅과 언더스코어</a></li>
-                  <li><a href="#" class="link-body-emphasis text-decoration-none">논리연산자와 제어문</a></li>
-                  <li><a href="#" class="link-body-emphasis text-decoration-none">블록</a></li>
-                  <li><a href="#" class="link-body-emphasis text-decoration-none">주석과 공백</a></li>
-                  <li><a href="#" class="link-body-emphasis text-decoration-none">쉼표와 세미콜론</a></li>
-                  <li><a href="#" class="link-body-emphasis text-decoration-none">명명규칙</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="mb-1">
-            <a href="/fe-accessibility.html" class="btn border-0 collapsed fw-bold">
-                <i class="bi bi-caret-right"></i> 접근성
-            </a>
-            <div class="collapse show ms-3 d-none">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ms-3">
-                  <li><a href="#acc-html" class="link-body-emphasis text-decoration-none">HTML과 접근성</a></li>
-                </ul>
-            </div>
-        </li>
-    </ul>
+
+    <ul data-vo="menuList" class="list-unstyled ps-0"></ul>
 </div>
 
+<div data-template>
+    <!-- mobile nav -->
+    <div data-template="mobNav">
+        <div data-vo="navBar" class="offcanvas offcanvas-start w-75" tabindex="-1" aria-labelledby="staticBackdropLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="staticBackdropLabel">Graft JS</h5>
+                <button data-vo="close" type="button" class="btn-close" aria-label="Close"></button>
+            </div>
+            <div data-vo="menuList" class="offcanvas-body">
+                <!-- <div class="h3">프론트 앤드</div>
+                <ul class="list-unstyled ps-0">
+                    <li class="mb-1">
+                        <a href="/docs/fe-code-style.html" class="btn border-0 collapsed fw-bold">
+                            <i class="bi bi-caret-right"></i> 코드 스타일 가이드
+                        </a>
+                        <div class="collapse show ms-3">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small ms-3"></ul>
+                        </div>
+                    </li>
+                </ul>
+
+                <div>백 앤드</div>
+                <ul class="list-unstyled ps-0"></ul> -->
+            </div>
+        </div>
+        <div data-vo="backdrop" class="offcanvas-backdrop fade d-none"></div>
+    </div>
+</div>
