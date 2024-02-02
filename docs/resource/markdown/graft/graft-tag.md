@@ -8,32 +8,58 @@ const view =app.tag('div', ...);
 
 ### 속성
 ```ts
-GraftElement.$ ={
-    /** 부모 엘리먼트 */
-    parent :Element;
+/** 부모 엘리먼트 */
+$.parent :Element;
 
-    /** 컨텐츠 TEXT 처리 */
-    text :string;
+/** 컨텐츠 TEXT 처리 */
+$.text :string;
 
-    /** HTML 마크업 처리 */
-    html :string;
+/** HTML 마크업 처리 */
+$.html :string;
 
-    /** VALUE 값 처리 */
-    value :string;
+/** VALUE 값 처리 */
+$.value :string;
+
+/** vo 컬렉션 */
+$.vo :{[string]: GraftElement};
+
+/** HTML 템플릿 객체 */
+$.template :{[string] :string};
+
+/** 클래스 유틸리티 */
+$.cls :{
+    /** 클래스 유무 */
+    has(v :string) :boolean;
+    /** 클래스 추가 */
+    add(...v :string[]) :view.$.cls;
+    /** 클래스 삭제 */
+    remove(...v :string[]) :view.$.cls;
 };
 ```
 
-스크립트(js)와 뷰(html) 상태값에 반응하는 속성값으로 getter / setter 기능으로 사용합니다.
+사용예
+
+생성된 Element객체를 이용한 화면제어 샘플 입니다.
+스크립트(js)와 뷰(html)의 상태값에 반응하는 속성으로 `text`,`html`,`value`등을 사용하여 입/출력을 처리 합니다. `data-vo`지시자로 선언된 객체는 `vo`객체로 취합되며,
+`data-template`을 이용하여 재사용 될 HTML조각을 작성 합니다.
 ```html
 <div id="sample">
     <div data-vo="textSample">11</div>
     <div data-vo="htmlSample"><strong>22</strong></div>
     <input data-vo="valueSample" type="text" value="33">
+
+    <div data-template>
+        <!-- tempSample 안의 내용을 검색합니다. -->
+        <ul data-template="tempSample">
+            <li>list item</li>
+        </ul>
+    </div>
 </div>
 
 <script>
     const sample =app.html.query('#sample');
     const tag =app.tag(sample);
+    // vo컬렉션
     const {textSample, htmlSample, valueSample} =tag.$.vo;
 
     // 결과값: 11
@@ -46,6 +72,10 @@ GraftElement.$ ={
     textSample.$.text ='aa';
     htmlSample.$.html ='<p>bb</p>';
     valueSample.$.value ='cc';
+
+    // 템플릿 컬렉션
+    // 결과값: <li>list item</li>
+    console.log(tag.template.tempSample);
 </script>
 ```
 
