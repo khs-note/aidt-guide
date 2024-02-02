@@ -47,8 +47,8 @@ const app =Graft.init((app) => {
     function resourceDefault(opt ={}) {
         const js =app.utils.zipArray([], opt.js);
         const css =app.utils.zipArray([
-            'libs/bootstrap/bootstrap.min.css',
-            'libs/bootstrap/bootstrap-icons.min.css',
+            '../resource/libs/bootstrap/bootstrap.min.css',
+            '../resource/libs/bootstrap/bootstrap-icons.min.css',
             'src/gnb/default-style.css',
         ], opt.css);
         const script =app.utils.zipArray([
@@ -69,7 +69,8 @@ const app =Graft.init((app) => {
     function appLink() {
         const {debug} =app.config;
         const docsMain =debug ?'/docs' :'/aidt-guide';
-        return {docsMain};
+        const home =debug ?'/docs/plain' :'/aidt-guide/plain';
+        return {home, docsMain};
     }
     function layoutTheme() {
         const {utils :{storage :{local}}} =app;

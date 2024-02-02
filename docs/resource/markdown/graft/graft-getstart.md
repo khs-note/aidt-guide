@@ -54,7 +54,7 @@ const app= Graft.init(app=> {
 
 `Graft.init`로 어플리케이션을 초기화 하며, 고차 함수를 이용해 환경 설정이 가능 합니다. `tag` 메소드를 이용해 바디를 스캔하며, 확장 기능이 이식 된 `$`객체를 이용하여 화면 또는 스크립트를 핸들링 합니다. 해당 샘플에서는 `setTexts()` 기능을 이용하여 **data-vo** 지시자로 선언된 모든 엘리먼트 객체의 TEXT값을 출력 합니다.
 
-![hello 결과](images/markdown/graft-getstart-001.png)
+![hello 결과](../resource/images/markdown/graft-getstart-001.png)
 
 ## 동적 페이지
 어플리케이션 구동을 위한 리소스(css, javascript)를 동적 로드가 가능합니다. 스크립트의 동적 로드를 이용한 모듈화가 가능 합니다.

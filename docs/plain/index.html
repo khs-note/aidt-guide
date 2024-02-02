@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="image/png" sizes="32x32" rel="icon" href="images/favicons/icon-32.png">
-    <link type="image/png" sizes="96x96" rel="icon" href="images/favicons/icon-96.png">
-    <link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="libs/bootstrap/bootstrap-icons.min.css">
-    <script src="libs/graft/graft.min.js"></script>
+    <link type="image/png" sizes="32x32" rel="icon" href="../resource/images/favicons/icon-32.png">
+    <link type="image/png" sizes="96x96" rel="icon" href="../resource/images/favicons/icon-96.png">
+    <link rel="stylesheet" href="../resource/libs/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../resource/libs/bootstrap/bootstrap-icons.min.css">
+    <script src="../resource/libs/graft/graft.min.js"></script>
     <script src="src/app-init.js"></script>
     <title>수행 가이드</title>
 </head>
@@ -15,7 +15,7 @@
     <div id="main" class="col-lg-8 mx-auto p-4 py-md-5">
         <header class="d-flex justify-content-between align-items-center pb-3 mb-5 border-bottom">
             <a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none">
-                <img src="images/favicons/icon-32.png">
+                <img src="../resource/images/favicons/icon-32.png">
                 <span class="ms-3 fs-4">프로젝트 수행 가이드</span>
             </a>
             <div>
@@ -85,7 +85,7 @@
                 vo.toggleMode.checked =isDark;
             });
             app.html.queryAll('[href]').forEach(el =>{
-                el.href =el.href.replace(location.origin, '').replace(/^\//, app.link.docsMain +'/')
+                el.href =el.href.replace(location.origin, '').replace(/^\//, app.link.home +'/')
             });
         }
     });
