@@ -31,13 +31,13 @@ app.exec(_ =>{
         const {useDiagram} =opt;
         const mode =app.layout.theme.getMode();
         const js =[
-            'libs/markdown/marked.min.js',
-            'libs/markdown/highlight.min.js',
-            useDiagram &&'libs/markdown/mermaid.min.js',
+            '../resource/libs/markdown/marked.min.js',
+            '../resource/libs/markdown/highlight.min.js',
+            useDiagram &&'../resource/libs/markdown/mermaid.min.js',
         ];
         const css =[
-            `libs/markdown/github-markdown-${mode}.min.css`,
-            `libs/markdown/highlight-${mode}.min.css`,
+            `../resource/libs/markdown/github-markdown-${mode}.min.css`,
+            `../resource/libs/markdown/highlight-${mode}.min.css`,
         ];
         return {js, css};
     }

@@ -23,20 +23,20 @@ app.exec(_ =>{
 
         function _markdownRender() {
             app.markdown.fetchFiles(...[
-                'markdown/graft/graft-getstart.md',
-                'markdown/graft/graft-api.md',
-                'markdown/graft/graft-api-config.md',
-                'markdown/graft/graft-api-log.md',
-                'markdown/graft/graft-api-resource.md',
-                'markdown/graft/graft-api-imports.md',
-                'markdown/graft/graft-api-template.md',
-                'markdown/graft/graft-api-view.md',
-                'markdown/graft/graft-api-html.md',
-                'markdown/graft/graft-api-utils.md',
-                'markdown/graft/graft-api-router.md',
-                'markdown/graft/graft-api-bridge.md',
-                'markdown/graft/graft-tag.md',
-                'markdown/graft/graft-bridge.md',
+                '../resource/markdown/graft/graft-getstart.md',
+                '../resource/markdown/graft/graft-api.md',
+                '../resource/markdown/graft/graft-api-config.md',
+                '../resource/markdown/graft/graft-api-log.md',
+                '../resource/markdown/graft/graft-api-resource.md',
+                '../resource/markdown/graft/graft-api-imports.md',
+                '../resource/markdown/graft/graft-api-template.md',
+                '../resource/markdown/graft/graft-api-view.md',
+                '../resource/markdown/graft/graft-api-html.md',
+                '../resource/markdown/graft/graft-api-utils.md',
+                '../resource/markdown/graft/graft-api-router.md',
+                '../resource/markdown/graft/graft-api-bridge.md',
+                '../resource/markdown/graft/graft-tag.md',
+                '../resource/markdown/graft/graft-bridge.md',
             ])
                 .then(texts =>{
                     app.markdown.render(vo.getstart, texts.shift());

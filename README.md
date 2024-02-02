@@ -1,6 +1,11 @@
 # aidt-guide
 수행 가이드
 
+## 가이드
+
+### 자바스크립트
+https://khs-note.github.io/aidt-guide/plain
+
 ## 오픈 소스 라이센스
 
 **bootstrap**: MIT<br>
