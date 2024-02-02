@@ -58,7 +58,7 @@ app.exec(_ =>{
             vo.menuList.$.insert(app.tag('li', {
                 class :'mb-1',
                 html :`
-                    <a href="${app.link.docsMain +data.link}"
+                    <a href="${app.link.home +data.link}"
                         class="btn border-0 collapsed fw-bold${isActive ?' text-primary' :''}">
                         <i class="bi bi-caret-right${isActive ?'-fill' :''}"></i> ${data.name}
                     </a>
@@ -158,7 +158,7 @@ app.exec(_ =>{
             lastElementChild.$.insert(app.tag('li', {
                 class :'mb-1',
                 html :`
-                    <a href="${app.link.docsMain +data.link}"
+                    <a href="${app.link.home +data.link}"
                         class="btn border-0 collapsed fw-bold${isActive ?' text-primary' :''}">
                         <i class="bi bi-caret-right${isActive ?'-fill' :''}"></i> ${data.name}
                     </a>
@@ -170,7 +170,7 @@ app.exec(_ =>{
         }
         function _displayMenuItem0(_, data) {
             vo.menuList.$.insert(app.tag('div', {
-                html: `<a href="${app.link.docsMain +data.link}"
+                html: `<a href="${app.link.home +data.link}"
                     class="link-body-emphasis text-decoration-none">
                     ${data.name}
                     </a>`,

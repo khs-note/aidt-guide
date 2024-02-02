@@ -64,9 +64,9 @@ app.exec(_ =>{
     }
     function initView() {
         const {vo} =view.$;
-        const {docsMain} =app.link;
+        const {home} =app.link;
 
-        vo.homeLink.href =docsMain;
+        vo.homeLink.href =home;
         // 메뉴 데이터 출력
         _displayMenuList();
 
@@ -77,7 +77,7 @@ app.exec(_ =>{
                 const active =isActive ?'fw-bold' :'link-body-emphasis';
                 vo.menuList.$.insert(app.tag('li', {
                     class :'nav-item',
-                    html :`<a class="nav-link ${active}" href="${docsMain +data.link}">${data.name}</a>`
+                    html :`<a class="nav-link ${active}" href="${home +data.link}">${data.name}</a>`
                 }));
             });
         }
