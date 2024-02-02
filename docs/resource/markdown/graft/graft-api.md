@@ -1,14 +1,15 @@
 # Graft 속성 및 메소드
 
 ## 기능 목록
+
 ### 정적함수
-* [Graft:init](#graft-api-init) #어플리케이션 초기화 합니다.
-* Graft:postWebMessage #네이티브 이벤트 수신을 위한 함수 입니다.
-* Graft:receiveWebMessage #네이티브 기능 수행 결과에 대한 응답 수신을 위한 함수 입니다.
+* [Graft:init](#graft-api-init) 어플리케이션 초기화 합니다.
+* Graft:postWebMessage [Bridge 연결](#graft-bridge)을 위한 함수로 네이티브 이벤트 수신을 위한 함수 입니다.
+* Graft:receiveWebMessage [Bridge 연결](#graft-bridge)을 위한 함수로 네이티브 기능 수행 결과에 대한 응답 수신을 위한 함수 입니다.
 
 ### 메소드
-* [Graft::exec](#graft-api-exec) #어플리케이션의 독립적인 공간을 제공합니다.
-* [Graft::tag](#graft-api-tag) #Tag 엘리먼트 객체를 생성합니다.
+* [Graft::exec](#graft-api-exec) 어플리케이션의 독립적인 공간을 제공합니다.
+* [Graft::tag](#graft-api-tag) Tag 엘리먼트 객체를 생성합니다.
 
 ### 속성
 * [Graft::config](#graft-api-config) 어플리케이션의 정보 및 환경 값을 설정 합니다.

@@ -25,6 +25,9 @@ app.exec(_ =>{
             app.markdown.fetchFiles(...[
                 '../resource/markdown/graft/graft-getstart.md',
                 '../resource/markdown/graft/graft-api.md',
+                '../resource/markdown/graft/graft-api-init.md',
+                '../resource/markdown/graft/graft-api-exec.md',
+                '../resource/markdown/graft/graft-api-tag.md',
                 '../resource/markdown/graft/graft-api-config.md',
                 '../resource/markdown/graft/graft-api-log.md',
                 '../resource/markdown/graft/graft-api-resource.md',
@@ -42,6 +45,9 @@ app.exec(_ =>{
                     app.markdown.render(vo.getstart, texts.shift());
 
                     app.markdown.render(vo.api, texts.shift());
+                    app.markdown.render(vo.apiInit, texts.shift());
+                    app.markdown.render(vo.apiExec, texts.shift());
+                    app.markdown.render(vo.apiTag, texts.shift());
                     app.markdown.render(vo.apiConfig, texts.shift());
                     app.markdown.render(vo.apiLog, texts.shift());
                     app.markdown.render(vo.apiResource, texts.shift());

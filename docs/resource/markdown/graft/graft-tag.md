@@ -1,7 +1,61 @@
 # Tag 객체
 `Graft.tag`를 이용하여 DOM객체를 생성하며, 해당 객체를 관리 하는 확장 속성(`$`)을 지원 합니다.
+```js
+const view =app.tag('div', ...);
+```
 
-## 기능목록
+## $ 객체 기능 목록
+
+### 속성
+```ts
+GraftElement.$ ={
+    /** 부모 엘리먼트 */
+    parent :Element;
+
+    /** 컨텐츠 TEXT 처리 */
+    text :string;
+
+    /** HTML 마크업 처리 */
+    html :string;
+
+    /** VALUE 값 처리 */
+    value :string;
+};
+```
+
+스크립트(js)와 뷰(html) 상태값에 반응하는 속성값으로 getter / setter 기능으로 사용합니다.
+```html
+<div id="sample">
+    <div data-vo="textSample">11</div>
+    <div data-vo="htmlSample"><strong>22</strong></div>
+    <input data-vo="valueSample" type="text" value="33">
+</div>
+
+<script>
+    const sample =app.html.query('#sample');
+    const tag =app.tag(sample);
+    const {textSample, htmlSample, valueSample} =tag.$.vo;
+
+    // 결과값: 11
+    console.log(textSample.$.text);
+    // 결과값: <strong>22</strong>
+    console.log(htmlSample.$.html);
+    // 결과값: 33
+    console.log(valueSample.$.value);
+
+    textSample.$.text ='aa';
+    htmlSample.$.html ='<p>bb</p>';
+    valueSample.$.value ='cc';
+</script>
+```
+
+### 메소드
+
+### getter / setter
+```ts
+/** 부모 엘리먼트 */
+$.parent :Element
+```
 
 ```ts
 const view =app.tag('div', ...);

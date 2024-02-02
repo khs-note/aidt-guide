@@ -1,16 +1,35 @@
-# Bridge 연경
-하이브리드 어플리케이션의 네이티브와 연동하여 메시지를 주고 받을 수 있는 브릿지 역할을 수행 합니다.
+# Bridge 연결
+하이브리드 웹 어플리케이션의 네이티브와 연동하여 메시지를 주고 받을 수 있는 브릿지 역할을 수행 합니다.
 
 ## 호출 인터페이스
 네이티브에서 목적에 따라 호출 하는 인터페이스를 제공합니다.
 
-```js
-// 네이티브에서 발생된 이벤트를 웹에 전달 할때 사용합니다.
-Graft.postWebMessage(sendMessage);
+> 네이티브 수행 응답 수신
 
-// 웹에서 요청한 기능에 대한 수행 결과를
-// 네이티브에서 웹에 전달 할때 사용합니다.
-Graft.receiveWebMessage(receiveMessage);
+[bridge](#graft-api-bridge)객체의 `postMessage()`메소드를 이용하여
+네이티브에 기능 수행을 요청 하며, 네이티브는 전달 받은 메시지에 대한 기능을 수행 합니다.
+이때 수행에 대한 결과를 자바스크립트에 전달 할 때 사용합니다.
+```ts
+Graft.receiveWebMessage(msg :GraftBridgeReceive) :void;
+
+type GraftBridgePayload ={
+    /** 수행 명령어 */
+    command :string;
+    /** 전달 데이터 */
+    payload :{[string] :any};
+};
+```
+> 네이티브 이벤트 수신
+```ts
+// 네이티브에서 발생된 이벤트를 웹에 전달 할때 사용합니다.
+Graft.postWebMessage(msg :GraftBridgePayload) :void;
+
+type GraftBridgeReceive ={
+    /** 발생 이벤트 */
+    command :string;
+    /** 전달 데이터 */
+    receive :{[string] :any};
+};
 ```
 
 ## 서비스 흐름도
