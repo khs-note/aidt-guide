@@ -3,9 +3,16 @@ app.exec(_ =>{
     app.markdown.getResource =getResource;
     app.markdown.fetchFiles =fetchFiles;
     app.markdown.render =render;
+    app.markdown.render.useOption =undefined;
+    app.markdown.getOption =getOption;
 
     // ===== 내부 기능 ===== //
     async function render(target, text) {
+        if(!app.markdown.render.useOption) {
+            app.markdown.render.useOption =app.markdown.getOption();
+            marked.use(app.markdown.render.useOption);
+        }
+
         target.$.html =marked.parse(text);
         await setHighlight(target);
         drawDiagram(target);
@@ -26,6 +33,19 @@ app.exec(_ =>{
             });
             setTimeout(_ =>resolve(), 100);
         });
+    }
+    function getOption() {
+        const renderer ={
+            heading(text, level, raw, slugger) {
+                const headingIdRegex = /(?: +|^)\{#([a-z][\w-]*)\}(?: +|$)/i;
+                const hasId = text.match(headingIdRegex);
+                return hasId
+                    ?`<h${level} id="${hasId[1]}">${text.replace(headingIdRegex, '')}</h${level}>\n`
+                    :false;
+            }
+        };
+
+        return {renderer};
     }
     function fetchFiles(...urls) {
         return app.utils.lazy
