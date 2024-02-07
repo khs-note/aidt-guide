@@ -1,7 +1,6 @@
 app.exec(_ =>{
     const view =app.view.conts =app.tag('div', controller, {
         html :app.template.conts,
-        class :'w-100 p-3'
     });
     function controller() {
         initView();
@@ -24,13 +23,13 @@ app.exec(_ =>{
 
         function _markdownRender() {
             app.markdown.fetchFiles(...[
-                'markdown/code-style/types.md',
-                'markdown/code-style/object-array.md',
+                '../resource/markdown/code-style.md',
+                // '../resource/markdown/code-style/object-array.md',
             ])
-                .then(texts =>{
-                    app.markdown.render(vo.types, texts.shift());
-                    app.markdown.render(vo.objectArray, texts.shift());
-                });
+            .then(texts =>{
+                app.markdown.render(vo.docBody, texts.shift());
+                // app.markdown.render(vo.objectArray, texts.shift());
+            });
         }
     }
 });

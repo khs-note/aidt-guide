@@ -64,43 +64,43 @@
         "link" :"/fe-code-style.html",
         "subs" :[{
             "name" :"타입선언",
-            "link" :"#code-types"
+            "link" :"#code-style-types"
         }, {
-            "name" :"객체와 배열",
-            "link" :"#code-object-array"
+            "name" :"객체",
+            "link" :"#code-style-object"
+        }, {
+            "name" :"배열",
+            "link" :"#code-style-array"
         }, {
             "name" :"분해 할당",
-            "link" :"#"
+            "link" :"#code-style-destructuring"
         }, {
             "name" :"문자열",
-            "link" :"#"
+            "link" :"#code-style-strings"
         }, {
             "name" :"함수와 화살표 함수",
-            "link" :"#"
+            "link" :"#code-style-functions"
         }, {
             "name" :"이터레이터",
-            "link" :"#"
+            "link" :"#code-style-iterators"
         }, {
-            "name" :"변수와 속성",
-            "link" :"#"
+            "name" :"변수와 프로퍼티",
+            "link" :"#code-style-variables"
         }, {
-            "name" :"호이스팅과 언더스코어",
-            "link" :"#"
+            "name" :"호이스팅",
+            "link" :"#code-style-hoisting"
         }, {
-            "name" :"논리연산자와 제어문",
-            "link" :"#"
+            "name" :"조건식",
+            "link" :"#code-style-equality"
         }, {
             "name" :"블록",
-            "link" :"#"
+            "link" :"#code-style-blocks"
         }, {
-            "name" :"주석과 공백",
-            "link" :"#"
-        }, {
-            "name" :"쉼표와 세미콜론",
-            "link" :"#"
+            "name" :"콤마와 세미콜론",
+            "link" :"#code-style-commas"
         }, {
             "name" :"명명규칙",
-            "link" :"#"
+            "link" :"#code-style-naming"
         }]
     }, {
         "name" :"접근성",
