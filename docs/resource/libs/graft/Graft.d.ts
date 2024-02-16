@@ -73,7 +73,7 @@ interface GraftHtml {
      * @param target 추가 대상의 부모(디폴트: body)
      * @param befor 앞에 추가 할 경우
      */
-    insert(child :GraftElement, target? :GraftElement, befor? :GraftElement) :GraftElement;
+    insert(child :GraftElement | string, target? :GraftElement, befor? :GraftElement) :GraftElement;
     /**
      * 엘리먼트 검색
      * @param selector 쿼리 셀렉터
